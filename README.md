@@ -7,13 +7,13 @@
 **Pega un enlace de YouTube y guarda el vídeo o su audio en el formato que quieras.**
 Aplicación de escritorio para Windows 11, en español y sin instalación.
 
-[![Descargar para Windows](https://img.shields.io/badge/Descargar-Pescaclip.exe-e8384f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Hash-0x/pescaclip/releases/latest/download/Pescaclip.exe)
+[![Descargar para Windows](https://img.shields.io/badge/Descargar-Pescaclip.exe-e8384f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Hash-0x/PescaClip/releases/latest/download/Pescaclip.exe)
 
 ![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?logo=windows11&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![yt-dlp](https://img.shields.io/badge/yt--dlp-motor-ff6a3d)
 ![FFmpeg](https://img.shields.io/badge/FFmpeg-incluido-007808?logo=ffmpeg&logoColor=white)
-[![Release](https://img.shields.io/github/v/release/Hash-0x/pescaclip?color=d6246e)](https://github.com/Hash-0x/pescaclip/releases)
+[![Release](https://img.shields.io/github/v/release/Hash-0x/PescaClip?color=d6246e)](https://github.com/Hash-0x/PescaClip/releases)
 
 <img src="assets/captura.png" alt="Ventana de Pescaclip con un vídeo analizado" width="620">
 
@@ -50,7 +50,7 @@ Aplicación de escritorio para Windows 11, en español y sin instalación.
 
 ### Opción A: usar el .exe (recomendado)
 
-1. Descarga **[Pescaclip.exe](https://github.com/Hash-0x/pescaclip/releases/latest/download/Pescaclip.exe)**. Ya incluye FFmpeg, así que no tienes que instalar nada.
+1. Descarga **[Pescaclip.exe](https://github.com/Hash-0x/PescaClip/releases/latest/download/Pescaclip.exe)**. Ya incluye FFmpeg, así que no tienes que instalar nada.
 2. Ábrelo con doble clic. La primera vez tarda unos segundos porque se descomprime.
 3. Pega el enlace → **Analizar** → elige el formato → **Descargar**.
 
@@ -62,7 +62,7 @@ Aplicación de escritorio para Windows 11, en español y sin instalación.
 ```powershell
 winget install Python.Python.3.13
 winget install Gyan.FFmpeg
-git clone https://github.com/Hash-0x/pescaclip.git
+git clone https://github.com/Hash-0x/PescaClip.git
 ```
 
 Después haz doble clic en **`Abrir Pescaclip.bat`**. La primera vez crea un entorno `.venv` e instala [`yt-dlp`](https://github.com/yt-dlp/yt-dlp).
@@ -70,7 +70,7 @@ Después haz doble clic en **`Abrir Pescaclip.bat`**. La primera vez crea un ent
 ## 🛠️ Para desarrolladores
 
 ```
-pescaclip/
+PescaClip/
 ├── app.py               Interfaz Tkinter (los hilos solo hablan con ella mediante una cola)
 ├── core.py              Enlaces, análisis, elección de formatos, descarga, FFmpeg y cancelación
 ├── test_local.py        Pruebas sin Internet con clips generados por FFmpeg
