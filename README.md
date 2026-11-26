@@ -1,47 +1,115 @@
+<div align="center">
+
+<img src="assets/logo.svg" alt="Logo de Pescaclip" width="140">
+
 # Pescaclip
 
-Aplicación de escritorio para Windows 11 que guarda un vídeo de YouTube, o solo su audio, en MP3, M4A, WAV, MP4 o WebM.
-Úsala solo con contenido propio o con permiso del titular. No usa cuentas, servidores ni telemetría, y no elude DRM ni restricciones.
+**Pega un enlace de YouTube y guarda el vídeo o su audio en el formato que quieras.**
+Aplicación de escritorio para Windows 11, en español y sin instalación.
 
-## Requisitos
+[![Descargar para Windows](https://img.shields.io/badge/Descargar-Pescaclip.exe-e8384f?style=for-the-badge&logo=windows&logoColor=white)](https://github.com/Hash-0x/pescaclip/releases/latest/download/Pescaclip.exe)
 
-- **Python 3.10 o posterior**: `winget install Python.Python.3.13`
-- **FFmpeg y FFprobe**: `winget install Gyan.FFmpeg`. Después cierra y vuelve a abrir la aplicación.
-  Otra opción es copiar `ffmpeg.exe` y `ffprobe.exe` en la misma carpeta que la aplicación o que el `.exe`.
-- Recomendado: **Node.js** o **Deno**. yt-dlp los usa para resolver los desafíos de YouTube; sin ellos puede haber menos calidades.
+![Windows 11](https://img.shields.io/badge/Windows-11-0078D4?logo=windows11&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
+![yt-dlp](https://img.shields.io/badge/yt--dlp-motor-ff6a3d)
+![FFmpeg](https://img.shields.io/badge/FFmpeg-incluido-007808?logo=ffmpeg&logoColor=white)
+[![Release](https://img.shields.io/github/v/release/Hash-0x/pescaclip?color=d6246e)](https://github.com/Hash-0x/pescaclip/releases)
 
-## Abrir la aplicación
+<img src="assets/captura.png" alt="Ventana de Pescaclip con un vídeo analizado" width="620">
 
-Haz doble clic en **`Abrir Pescaclip.bat`**. La primera vez crea `.venv` e instala las dependencias de `requirements.txt` (hace falta Internet).
+</div>
 
-## Uso
+> [!IMPORTANT]
+> Úsalo solo con **contenido propio o con permiso** del titular. Pescaclip no usa cuentas, servidores ni telemetría, y no elude DRM ni restricciones de acceso.
 
-1. Pega el enlace (normal, `youtu.be` o Shorts) y pulsa **Analizar**. Si el enlace incluye una lista, solo se usa el vídeo indicado.
-2. Elige **Audio** (MP3 a 128, 192 o 320 kbps, M4A o WAV) o **Vídeo** (MP4 o WebM, hasta 1080p, sin reescalar).
-3. Elige la carpeta. Por defecto es Descargas, y la aplicación recuerda la última que elegiste.
-   Si ya existe un archivo con el mismo nombre, se crea «Título (1).ext» y el original no se toca.
-4. Pulsa **Descargar**. **Cancelar** detiene la descarga y FFmpeg y borra los temporales.
+## ✨ Qué hace
 
-En MP4 se priorizan H.264 y AAC. Las pistas que ya son compatibles se copian sin recodificar.
+| | |
+|---|---|
+| 🔗 **Cualquier enlace de vídeo** | Admite enlaces normales, `youtu.be` y Shorts. Si el enlace incluye una lista, descarga solo el vídeo indicado. |
+| 🎧 **Audio o vídeo** | Puedes guardar solo el audio o el vídeo completo, en el formato que elijas. |
+| 🎯 **Calidad real** | Muestra las resoluciones disponibles, hasta 1080p, sin reescalar. Copia las pistas compatibles en lugar de recodificarlas. |
+| 📊 **Progreso claro** | Muestra las fases *Descargando → Convirtiendo → Completado* y permite **Cancelar** en cualquier momento. |
+| 🛡️ **No pisa nada** | Si ya existe un archivo con el mismo nombre, crea `Título (1).mp3`. Al cancelar no deja archivos a medias. |
+| 📂 **Recuerda tu carpeta** | Usa Descargas por defecto, guarda la última carpeta elegida y te deja reproducir el archivo o abrir su carpeta al terminar. |
 
-## Crear un .exe
+## 🎚️ Formatos
 
-Ejecuta `build_exe.bat`, que genera `dist\Pescaclip.exe` (un solo archivo de unos 200 MB, sin consola).
-**FFmpeg y FFprobe van incluidos** en el .exe, así que quien lo reciba no tiene que instalar nada.
-Para compilarlo, FFmpeg tiene que estar instalado en tu equipo.
-El .exe tarda unos segundos en abrirse porque se descomprime.
+| Modo | Formato | Calidad | Notas |
+|---|---|---|---|
+| 🎧 Audio | **MP3** | 128 · **192** · 320 kbps | Compatible con todo |
+| 🎧 Audio | **M4A** | La original | Copia el AAC de YouTube sin pérdida extra ⭐ |
+| 🎧 Audio | **WAV** | Sin compresión | Archivos grandes, para edición |
+| 🎬 Vídeo | **MP4** | Hasta 1080p | H.264 + AAC, se reproduce en cualquier sitio |
+| 🎬 Vídeo | **WebM** | Hasta 1080p | VP9/AV1 + Opus, normalmente sin recodificar |
 
-## Pruebas
+> [!TIP]
+> El audio de YouTube ronda los 128–160 kbps. Para la máxima calidad, elige **M4A**. Un MP3 de 320 kbps pesa más, pero no suena mejor.
 
-`.venv\Scripts\python test_local.py` genera clips con FFmpeg y prueba sin Internet:
+## 🚀 Empezar
 
-- todos los formatos, comprobados con FFprobe;
-- cancelar durante la descarga y durante la conversión;
-- repetir una descarga con el mismo nombre;
-- carpetas no válidas;
-- validación de enlaces.
+### Opción A: usar el .exe (recomendado)
 
-## Problemas frecuentes
+1. Descarga **[Pescaclip.exe](https://github.com/Hash-0x/pescaclip/releases/latest/download/Pescaclip.exe)**. Ya incluye FFmpeg, así que no tienes que instalar nada.
+2. Ábrelo con doble clic. La primera vez tarda unos segundos porque se descomprime.
+3. Pega el enlace → **Analizar** → elige el formato → **Descargar**.
 
-- *Error 403 o «no eres un bot»*: actualiza yt-dlp con `.venv\Scripts\python -m pip install -U "yt-dlp[default]"`.
-- Los vídeos con restricción de edad, privados o solo para miembros no se pueden descargar, porque la aplicación no inicia sesión.
+> [!NOTE]
+> Windows SmartScreen puede avisar porque el .exe no está firmado. Pulsa **Más información → Ejecutar de todas formas**.
+
+### Opción B: ejecutar desde el código
+
+```powershell
+winget install Python.Python.3.13
+winget install Gyan.FFmpeg
+git clone https://github.com/Hash-0x/pescaclip.git
+```
+
+Después haz doble clic en **`Abrir Pescaclip.bat`**. La primera vez crea un entorno `.venv` e instala [`yt-dlp`](https://github.com/yt-dlp/yt-dlp).
+
+## 🛠️ Para desarrolladores
+
+```
+pescaclip/
+├── app.py               Interfaz Tkinter (los hilos solo hablan con ella mediante una cola)
+├── core.py              Enlaces, análisis, elección de formatos, descarga, FFmpeg y cancelación
+├── test_local.py        Pruebas sin Internet con clips generados por FFmpeg
+├── build_exe.bat        Genera dist\Pescaclip.exe con PyInstaller (FFmpeg incluido)
+└── Abrir Pescaclip.bat  Iniciador con doble clic
+```
+
+- **Pruebas:** `.venv\Scripts\python test_local.py` comprueba con FFprobe todos los formatos, la cancelación durante la descarga y durante la conversión, los nombres repetidos y las carpetas no válidas.
+- **Compilar el .exe:** `build_exe.bat`. Necesita FFmpeg instalado, porque copia sus binarios dentro del .exe.
+- **Recomendado:** tener [Node.js](https://nodejs.org) o [Deno](https://deno.com). yt-dlp los usa para resolver los desafíos de YouTube; sin ellos puede haber menos calidades disponibles.
+
+## ❓ Problemas frecuentes
+
+<details>
+<summary><b>Error 403 o «YouTube pide verificar que no eres un bot»</b></summary>
+
+YouTube cambia a menudo y hay que actualizar yt-dlp:
+
+```powershell
+.venv\Scripts\python -m pip install -U "yt-dlp[default]"
+```
+
+Si usas el .exe, descarga la última release o vuelve a generarlo con `build_exe.bat`.
+</details>
+
+<details>
+<summary><b>«El vídeo tiene restricción de edad», «es privado» o «es solo para miembros»</b></summary>
+
+Pescaclip no inicia sesión en YouTube, así que esos vídeos no se pueden descargar. Es intencionado.
+</details>
+
+<details>
+<summary><b>«No se encuentra FFmpeg» (solo al ejecutar desde el código)</b></summary>
+
+Instálalo con `winget install Gyan.FFmpeg` y vuelve a abrir la aplicación. También puedes copiar `ffmpeg.exe` y `ffprobe.exe` junto a `app.py`.
+</details>
+
+## 📄 Créditos
+
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) obtiene el contenido.
+- [FFmpeg](https://ffmpeg.org) convierte y comprueba los archivos. El .exe incluye la compilación de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/), con licencia GPL.
+- La captura usa *Big Buck Bunny*, © Blender Foundation, con licencia [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
