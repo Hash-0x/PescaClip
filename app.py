@@ -3,6 +3,7 @@ import json
 import os
 import queue
 import subprocess
+import sys
 import threading
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
@@ -62,6 +63,9 @@ class App:
         self.folder = tk.StringVar(value=folder if folder and os.path.isdir(folder) else downloads_dir())
 
         root.title(APP_NAME)
+        icon = os.path.join(getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__))), "assets", "logo.ico")
+        if os.path.isfile(icon):
+            root.iconbitmap(default=icon)
         root.minsize(620, 0)
         main = ttk.Frame(root, padding=14)
         main.pack(fill="both", expand=True)
@@ -327,6 +331,8 @@ def main():
     try:  # texto nítido en pantallas con escalado (Windows)
         import ctypes
         ctypes.windll.shcore.SetProcessDpiAwareness(1)
+        # Sin esto, al ejecutar con pythonw la barra de tareas muestra el icono de Python.
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("Pescaclip")
     except (AttributeError, OSError):
         pass
     root = tk.Tk()

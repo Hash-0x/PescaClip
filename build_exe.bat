@@ -9,7 +9,7 @@ if not exist ".venv\Scripts\python.exe" python -m venv .venv
 rem Las DLL solo existen en las compilaciones "shared" de FFmpeg; en las estaticas el comodin no encuentra nada.
 set "DLLS="
 if exist "%FF%*.dll" set DLLS=--add-binary "%FF%*.dll;ffmpeg"
-".venv\Scripts\python.exe" -m PyInstaller --noconfirm --onefile --windowed --name Pescaclip ^
+".venv\Scripts\python.exe" -m PyInstaller --noconfirm --onefile --windowed --name Pescaclip --icon assets\logo.ico --add-data "assets\logo.ico;assets" ^
     --collect-all yt_dlp_ejs --add-binary "%FF%ffmpeg.exe;ffmpeg" --add-binary "%FF%ffprobe.exe;ffmpeg" %DLLS% ^
     app.py || exit /b 1
 echo.
