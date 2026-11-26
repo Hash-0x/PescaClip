@@ -13,6 +13,7 @@ Aplicación de escritorio para Windows 11, en español y sin instalación.
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![yt-dlp](https://img.shields.io/badge/yt--dlp-motor-ff6a3d)
 ![FFmpeg](https://img.shields.io/badge/FFmpeg-incluido-007808?logo=ffmpeg&logoColor=white)
+[![Licencia MIT](https://img.shields.io/badge/licencia-MIT-555)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/Hash-0x/PescaClip?color=d6246e)](https://github.com/Hash-0x/PescaClip/releases)
 
 <img src="assets/captura.png" alt="Ventana de Pescaclip con un vídeo analizado" width="620">
@@ -108,8 +109,11 @@ Pescaclip no inicia sesión en YouTube, así que esos vídeos no se pueden desca
 Instálalo con `winget install Gyan.FFmpeg` y vuelve a abrir la aplicación. También puedes copiar `ffmpeg.exe` y `ffprobe.exe` junto a `app.py`.
 </details>
 
-## 📄 Créditos
+## 📄 Licencia y créditos
 
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp) obtiene el contenido.
-- [FFmpeg](https://ffmpeg.org) convierte y comprueba los archivos. El .exe incluye la compilación de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/), con licencia GPL.
+El código de Pescaclip tiene licencia **[MIT](LICENSE)**. El `.exe` incluye componentes de terceros con sus propias licencias; la lista completa está en **[THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)**.
+
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp) obtiene el contenido y es de dominio público.
+- [FFmpeg](https://ffmpeg.org) convierte y comprueba los archivos. El .exe incluye la compilación de [gyan.dev](https://www.gyan.dev/ffmpeg/builds/) sin modificar, con licencia **GPL v3**. Su texto y el enlace al código fuente están en [licenses/](licenses).
 - La captura usa *Big Buck Bunny*, © Blender Foundation, con licencia [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/).
+- «YouTube» es una marca de Google LLC. Este proyecto no está afiliado a YouTube ni a Google.

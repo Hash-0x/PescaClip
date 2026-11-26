@@ -11,6 +11,8 @@ set "DLLS="
 if exist "%FF%*.dll" set DLLS=--add-binary "%FF%*.dll;ffmpeg"
 ".venv\Scripts\python.exe" -m PyInstaller --noconfirm --onefile --windowed --name Pescaclip --icon assets\logo.ico --add-data "assets\logo.ico;assets" ^
     --collect-all yt_dlp_ejs --add-binary "%FF%ffmpeg.exe;ffmpeg" --add-binary "%FF%ffprobe.exe;ffmpeg" %DLLS% ^
+    --exclude-module mutagen --exclude-module PIL ^
+    --add-data "LICENSE;licenses" --add-data "THIRD_PARTY_NOTICES.md;licenses" --add-data "licenses\*.txt;licenses" ^
     app.py || exit /b 1
 echo.
 echo Listo: dist\Pescaclip.exe
